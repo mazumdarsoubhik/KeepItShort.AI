@@ -71,7 +71,8 @@ Return the output in JSON format: {"Image prompt": {{ image_prompt }}}'''
 
 def get_image(image_prompt):
 	# image_prompt = "A picture of Turkish President Erdogan during a political rally standing on a stage with a microphone in front of a large crowd in a colorful political background"
-	image_options = Options(prompt=image_prompt)
+	# image_options = Options(prompt=image_prompt)
+	image_options = Options(prompt=image_prompt, size='256x256')
 
 	response = service.generate_image(image_options)
 
@@ -101,6 +102,7 @@ def get_news_card(link_to_article):
 
 	return res
 
-# data = get_news_card("https://www.thehindu.com/news/national/wrestlers-protest-naresh-tikait-announces-mahapanchayat-in-muzaffarnagar-on-thursday-june-1-2023/article66914867.ece")
-
-# print(data)
+if __name__ == '__main__':
+	# data = get_news_card("https://www.thehindu.com/news/national/wrestlers-protest-naresh-tikait-announces-mahapanchayat-in-muzaffarnagar-on-thursday-june-1-2023/article66914867.ece")
+	data = get_image("A butterfly flying in space")
+	print(data)
